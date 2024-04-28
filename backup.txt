@@ -1,0 +1,62 @@
+.bubble {
+  --r: 25px; /* the radius */
+  --t: 30px; /* the size of the tail */
+  padding: calc(2 * var(--r) / 3);
+  -webkit-mask: radial-gradient(var(--t) at var(--_d) 0, #0000 98%, #000 102%)
+      var(--_d) 100% / calc(100% - var(--r)) var(--t) no-repeat,
+    conic-gradient(at var(--r) var(--r), #000 75%, #0000 0) calc(var(--r) / -2)
+      calc(var(--r) / -2) padding-box,
+    radial-gradient(50% 50%, #000 98%, #0000 101%) 0 0 / var(--r) var(--r) space
+      padding-box;
+  color: #fff;
+  font-size: 0.7em;
+}
+
+.m_bubble{
+  background-color: aqua;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 1rem 0 2rem;
+  position: relative;
+  border-bottom-left-radius: 0;
+  max-width: 300px;
+}
+.m_bubble::before{
+  content: '';
+	position: absolute;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-bottom-color: aqua;
+
+	border-top: 0;
+	border-right: 0;
+	left: -20px;
+  bottom: 0;
+}
+.m_bubble::after{
+  content: '';
+  width: 24px;
+  height: 30px;
+  background-color: #920209;
+  position:absolute;
+  left: -24px;
+  bottom: 0;
+transform: translateY(-1px);
+border-bottom-right-radius: 16px;
+}
+.left {
+  --_d: 0%;
+  border-left: var(--t) solid #0000;
+  justify-self: start;
+  margin-top: 0.5rem;
+  background-color: var(--main-color);
+}
+.right {
+  margin-top: 0.5rem;
+  --_d: 100%;
+  border-right: var(--t) solid #0000;
+  justify-self: end;
+  background-color: var(--second-color);
+}
